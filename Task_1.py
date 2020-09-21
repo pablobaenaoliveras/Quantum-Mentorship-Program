@@ -182,7 +182,7 @@ target_statevector=random_statevector(dims).data
 # ### L-BFGS-B Optimization Algorithm
 # I have selected this optimization algorithm since it allows to implement boundaries to the parameters
 
-# In[ ]:
+# In[8]:
 
 
 #Initialization of a list to retrieve the cost function final values for each layer value
@@ -213,7 +213,7 @@ for L in L_values:
 
 # ### Plot results 
 
-# In[ ]:
+# In[9]:
 
 
 plt.scatter(L_values,f_values,color='red')
@@ -223,23 +223,35 @@ plt.title('error value(Manhattan Distance) VS number of layers')
 plt.show()
 
 
-# ### Check of the result for the last value of L
+# ### Check the results for the last value of L_value
 
-# In[ ]:
+# In[10]:
 
 
 final_parameters=opts.x
 print(final_parameters)
 
 
-# In[ ]:
+# In[12]:
 
 
 qc=get_var_qc_ugates(final_parameters,n,L)
 result = execute(qc, backend).result()
     # Obtain the outputstate, output state vector of the quantum circuit 
 outputstate = result.get_statevector(qc)
-print(outputstate)
-print(target_statevector)
-print(outputstate-target_statevector)
+print('Output_StateVector:\n {}'.format(outputstate))
+print('Target_StateVector:\n {}'.format(target_statevector))
+print('Output_StateVector - Target_StateVector:\n {}'.format(outputstate-target_statevector))
+
+
+# In[13]:
+
+
+qc.draw('mpl')
+
+
+# In[14]:
+
+
+qc.decompose().draw('mpl')
 
