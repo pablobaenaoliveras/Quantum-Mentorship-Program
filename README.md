@@ -6,7 +6,7 @@ Install the Qiskit package, which includes Terra, Aer, Ignis, and Aqua:
 
 pip install qiskit
 
-I have uploaded a .inpy (notebook py format) file of the code and also a .py file
+I have uploaded a .inpy (notebook py format) file of the code and also a .py file. I recommend to check the .inpy file, the .py file was created from it.
 
 I am looking forward to being admitted in this menthorship program
 
